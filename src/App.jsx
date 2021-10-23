@@ -22,7 +22,7 @@ const App = ( )=>{
       } else if (val === "=") {
         let currentStr = total.join("");
         let newTotal = evaluate(currentStr);
-        console.log(newTotal)
+        newTotal = newTotal.toFixed(3)
         setsumTotal(newTotal)
         setTotal([0]);
         
@@ -53,8 +53,10 @@ const App = ( )=>{
   }
   return (
     <div className="container">
-      <h1>react -calculator</h1>
-      <Display value={total} display={sumtotal}/>
+      {/* <h1>react -calculator</h1> */}
+      <div className="display">
+      <Display  value={total} display={sumtotal}/>
+      </div>
       <div className="keys">
       {keys.map((item,index)=>{
         return(
@@ -80,7 +82,7 @@ const App = ( )=>{
 
 const Display =(props) => {
   return (
-  <h3 className="display" >{props.display>0 ? props.display : props.value}</h3>)
+  <h3  >{props.display>0 ? props.display : props.value}</h3>)
 };
 
 const Key =({value, handleClick, displayValue,style}) =>{
